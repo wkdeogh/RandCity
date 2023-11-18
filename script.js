@@ -84,7 +84,7 @@ function slowDown() {
             running = false;
             let selectedCity = cities[currentIndex];
             cityLabel.textContent = `⭐️ ${selectedCity} ⭐️`;
-            cityLabel.style.color = 'red';
+            cityLabel.style.color = 'blue';
             // cityLabel.style.fontSize = '70px';
             resultLabel.textContent = `${selectedCity} 당첨~`;
             startButton.disabled = false;
