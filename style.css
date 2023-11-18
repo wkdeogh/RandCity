@@ -5,12 +5,16 @@ body {
 }
 
 .container {
-    width: 300px;
+    width: 500px;
     margin: 0 auto;
 }
 
 button {
-    font-size: 14px;
+    font-size: 30px;
     padding: 10px 20px;
     margin-top: 20px;
+}
+
+h1 {
+    font-size: 50px;
 }

@@ -63,6 +63,9 @@ function startRotating() {
     running = true;
     startButton.disabled = true;
     updateInterval = 100; // 다시 초깃값으로 설정
+    cityLabel.style.color = 'black';
+    cityLabel.style.fontSize = '50px';
+    resultLabel.textContent = " ";
     updateLabel();
     setTimeout(slowDown, 5000); // 5초 후에 느려짐 시작
 }
@@ -82,8 +85,8 @@ function slowDown() {
             let selectedCity = cities[currentIndex];
             cityLabel.textContent = `⭐️ ${selectedCity} ⭐️`;
             cityLabel.style.color = 'red';
-            cityLabel.style.fontSize = '40px';
-            resultLabel.textContent = `${selectedCity} 도시가 당첨되었습니다!`;
+            // cityLabel.style.fontSize = '70px';
+            resultLabel.textContent = `${selectedCity} 당첨~`;
             startButton.disabled = false;
         }, 1700)
     }, 500 * 20); // 전체 느려지는 과정이 끝난 후
