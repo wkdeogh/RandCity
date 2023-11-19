@@ -27,7 +27,7 @@ function startRotating(startButtonId, labelId, resultLabelId, items) {
     let updateInterval = 100;
 
     startButton.disabled = true;
-    
+
     resultLabel.textContent = "ㅤ";
 
 
@@ -78,7 +78,6 @@ function showFireworks() {
     fireworksActive = true;
     document.getElementById('particles-js').style.display = 'block';
     particlesJS("particles-js", {
-      // 폭죽 효과를 위한 particles.js 설정
       particles: {
         number: {
           value: 100,
@@ -129,7 +128,7 @@ function showFireworks() {
       retina_detect: true
     });
   
-    setTimeout(stopFireworks, 20000); // 시간은 밀리초 단위로 설정 (예: 3000ms = 3초)
+    setTimeout(stopFireworks, 60000); // 시간은 밀리초 단위로 설정 (예: 3000ms = 3초)
   }
   
   function shuffleArray(array) {
