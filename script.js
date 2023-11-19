@@ -175,7 +175,6 @@ function showFireworks() {
       retina_detect: true
     });
   
-    // 3-5초 후 효과 사라짐
-    setTimeout(stopFireworks, 10000); // 시간은 밀리초 단위로 설정 (예: 3000ms = 3초)
+    setTimeout(stopFireworks, 20000); // 시간은 밀리초 단위로 설정 (예: 3000ms = 3초)
   }
   
