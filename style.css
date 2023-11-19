@@ -30,6 +30,7 @@ button {
 h1 {
     font-size: 50px;
     margin-bottom: 20px;
+    z-index: 2;
 }
 
 #particles-js {
