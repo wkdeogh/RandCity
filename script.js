@@ -36,10 +36,10 @@ const cities = [
 
     // 강원도
     "고성군(강원)", "양구군", "양양군", "영월군", "인제군", "정선군", "철원군", "평창군", "홍천군", "화천군", "횡성군",
-
+    
     //경기도
     // "가평군", "양평군", "연천군"
-
+    
 ];
 
 
@@ -49,6 +49,7 @@ const resultLabel = document.getElementById('resultLabel');
 let currentIndex = 0;
 let running = false;
 let updateInterval = 100; // 초깃값: 100ms
+let fireworksActive = false;
 
 function updateLabel() {
     if (running) {
@@ -59,6 +60,9 @@ function updateLabel() {
 }
 
 function startRotating() {
+    if (fireworksActive == true) {
+        stopFireworks();
+    }
     shuffleArray(cities);
     running = true;
     startButton.disabled = true;
@@ -88,6 +92,7 @@ function slowDown() {
             // cityLabel.style.fontSize = '70px';
             resultLabel.textContent = `${selectedCity} 당첨~`;
             startButton.disabled = false;
+            showFireworks();
         }, 1700)
     }, 500 * 20); // 전체 느려지는 과정이 끝난 후
 }
@@ -100,3 +105,77 @@ function shuffleArray(array) {
 }
 
 startButton.addEventListener('click', startRotating);
+
+
+
+function stopFireworks() {
+  if(fireworksActive) {
+    document.getElementById('particles-js').style.display = 'none';
+    if(window.pJSDom && window.pJSDom.length) {
+      window.pJSDom[0].pJS.fn.vendors.destroypJS();
+      window.pJSDom = [];
+    }
+    fireworksActive = false;
+  }
+}
+
+
+function showFireworks() {
+    fireworksActive = true;
+    document.getElementById('particles-js').style.display = 'block';
+    particlesJS("particles-js", {
+      // 폭죽 효과를 위한 particles.js 설정
+      particles: {
+        number: {
+          value: 100,
+          density: {
+            enable: false
+          }
+        },
+        color: {
+          value: ["#ff0000", "#00ff00", "#0000ff"]
+        },
+        opacity: {
+          value: 1,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0,
+            sync: false
+          }
+        },
+        size: {
+          value: 10,
+          random: true
+        },
+        line_linked: {
+          enable: false
+        },
+        move: {
+          enable: true,
+          speed: 10,
+          direction: "none",
+          random: true,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: false
+          },
+          onclick: {
+            enable: false
+          }
+        }
+      },
+      retina_detect: true
+    });
+  
+    // 3-5초 후 효과 사라짐
+    setTimeout(stopFireworks, 10000); // 시간은 밀리초 단위로 설정 (예: 3000ms = 3초)
+  }
+  
