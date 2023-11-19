@@ -75,3 +75,23 @@ h1 {
 .selection-button:hover {
     background-color: rgb(192, 233, 255); /* 호버 시 배경색 변경 */
 }
+
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 100px;
+    }
+    button {
+        font-size: 100px;
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+
+    .home-button {
+        font-size: 50px;
+    }
+
+    .selection-button {
+        font-size: 60px; /* 글자 크기 */
+    }
+}
