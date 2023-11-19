@@ -27,7 +27,9 @@ function startRotating(startButtonId, labelId, resultLabelId, items) {
     let updateInterval = 100;
 
     startButton.disabled = true;
-    resultLabel.textContent = " ";
+    
+    resultLabel.textContent = "ㅤ";
+
 
     function rotate() {
         if (running) {
