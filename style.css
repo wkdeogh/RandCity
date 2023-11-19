@@ -1,22 +1,24 @@
 body {
-    font-family: 'Helvetica', sans-serif;
-    text-align: center;
-    padding-top: 150px;
-
     /* font-family: 'Helvetica', sans-serif;
+    text-align: center;
+    padding-top: 150px; */
+
+    font-family: 'Helvetica', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh; 
+    height: 100vh; /* 뷰포트의 전체 높이 */
     display: flex;
-    justify-content: center;
-    align-items: center; 
-    text-align: center; */
+    flex-direction: column; /* 자식 요소들을 수직으로 정렬 */
+    justify-content: center; /* 수직 방향으로 중앙 정렬 */
+    align-items: center; /* 수평 방향으로 중앙 정렬 */
+    text-align: center;
 }
 
 .container {
     width: 500px;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 12%;
 }
 
 button {
@@ -27,6 +29,8 @@ button {
 
 h1 {
     font-size: 50px;
+    /* padding-bottom: 0; */
+    margin-bottom: 20px;
 }
 
 #particles-js {

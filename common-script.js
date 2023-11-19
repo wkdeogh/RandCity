@@ -10,9 +10,15 @@ function updateLabel(labelId, items, currentIndex) {
     label.textContent = items[currentIndex];
 }
 
+function updateColor(labelId, clr) {
+    const label = document.getElementById(labelId);
+    label.style.color = clr;
+}
 
 function startRotating(startButtonId, labelId, resultLabelId, items) {
+    shuffleArray(items);
     stopFireworks();
+    updateColor(labelId, 'black');
     const startButton = document.getElementById(startButtonId);
     const resultLabel = document.getElementById(resultLabelId);
 
@@ -21,7 +27,7 @@ function startRotating(startButtonId, labelId, resultLabelId, items) {
     let updateInterval = 100;
 
     startButton.disabled = true;
-    resultLabel.textContent = "";
+    resultLabel.textContent = " ";
 
     function rotate() {
         if (running) {
@@ -45,6 +51,7 @@ function startRotating(startButtonId, labelId, resultLabelId, items) {
             running = false;
             let selected = items[currentIndex];
             updateLabel(labelId, [`⭐️ ${selected} ⭐️`], 0);
+            updateColor(labelId, 'teal');
             startButton.disabled = false;
             showResultLabel(selected);
             showFireworks();
@@ -123,3 +130,9 @@ function showFireworks() {
     setTimeout(stopFireworks, 20000); // 시간은 밀리초 단위로 설정 (예: 3000ms = 3초)
   }
   
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
